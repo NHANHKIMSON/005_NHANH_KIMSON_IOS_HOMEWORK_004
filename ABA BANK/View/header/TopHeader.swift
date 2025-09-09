@@ -10,26 +10,31 @@ struct TopHeader: View {
     var userFullName: String
     var icon: String
     var secondIcon: String
+    @State var isShowingFullScreen: Bool = false
     var body: some View {
-        HStack{
             HStack{
-                CustomImageContent(isFit: true, image: userProfile, border: Color.white)
-                    .frame(width: 42, height: 42)
-                VStack(alignment: .leading, spacing: 4){
-                    Text("\(userFullName)!")
-                        .font(.headline)
-                    Text("View profile")
-                        .font(.caption)
+                HStack{
+                    CustomImageContent(isFit: true, image: userProfile, border: Color.white)
+                        .frame(width: 42, height: 42)
+                    VStack(alignment: .leading, spacing: 4){
+                        Text("\(userFullName)!")
+                            .font(.headline)
+                        Text("View profile")
+                            .font(.caption)
+                    }
+                }
+                Spacer()
+                HStack(spacing: 20){
+                    ImageWithButton(action: {}, image: icon)
+                    ImageWithButton(action: {
+                        isShowingFullScreen = true
+                    }, image: secondIcon)
+                    .fullScreenCover(isPresented: $isShowingFullScreen){
+                        FullScreenCoverView(showingScreenCover: $isShowingFullScreen)
+                    }
                 }
             }
-            Spacer()
-            HStack(spacing: 20){
-                ImageWithButton(action: {}, image: icon)
-                ImageWithButton(action: {}, image: secondIcon)
-                    .frame(width: 24, height: 24)
-            }
         }
-    }
 }
 #Preview{
     ContentView()

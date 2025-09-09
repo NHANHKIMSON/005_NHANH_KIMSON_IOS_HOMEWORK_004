@@ -16,6 +16,7 @@ struct ImageWithButton: View {
                 CustomImageContent(isFit: self.isFit, image: self.image ?? "")
                     .frame(width: 24, height: 24)
                 Text(text ?? "")
+                    .foregroundStyle(.white)
             }
         })
         .buttonStyle(CustomButtonStyle())

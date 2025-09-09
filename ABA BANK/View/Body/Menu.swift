@@ -4,7 +4,6 @@
 //
 //  Created by Apple on 9/6/25.
 //
-
 class CardContent: Identifiable{
     var id = UUID()
     var image: String
@@ -15,7 +14,6 @@ class CardContent: Identifiable{
     }
 }
 
-
 import SwiftUI
 struct Menu: View {
     var geometry: GeometryProxy
@@ -25,11 +23,11 @@ struct Menu: View {
     ]
     var cards: [CardContent] = [
         CardContent(image: "wallet", text: "Accounts"),
-        CardContent(image: "bill", text: "Accounts"),
-        CardContent(image: "transericon", text: "Accounts"),
-        CardContent(image: "favorite", text: "Accounts"),
-        CardContent(image: "scan-fill", text: "Accounts"),
-        CardContent(image: "service", text: "Accounts")
+        CardContent(image: "favorite", text: "Favorites"),
+        CardContent(image: "bill", text: "Pay bils"),
+        CardContent(image: "scan-fill", text: "ABA Scan"),
+        CardContent(image: "transericon", text: "Transfer"),
+        CardContent(image: "service", text: "Services")
     ]
 
     var body: some View {
@@ -49,7 +47,6 @@ struct Menu: View {
         .environmentObject(User())
 }
 
-
 struct Card: View {
     var image: String?
     var text: String?
@@ -62,8 +59,11 @@ struct Card: View {
                 .frame(width: size, height: size)
             Text(text ?? "")
         }
-        .padding()
-        .background(.gray)
+        .frame(width: geometry.size.width / 3.8,
+               height: geometry.size.width / 3.8)
+        .background(.white)
+        .foregroundStyle(.black)
+        .bold()
         .cornerRadius(14)
     }
 }

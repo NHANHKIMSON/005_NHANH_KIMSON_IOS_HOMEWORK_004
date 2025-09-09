@@ -6,6 +6,7 @@
 //
 import SwiftUI
 struct balanceDetailBoard: View{
+    
     var balance: Double = 12.00
     @State var isHide: Bool = false
     var geomentry: GeometryProxy

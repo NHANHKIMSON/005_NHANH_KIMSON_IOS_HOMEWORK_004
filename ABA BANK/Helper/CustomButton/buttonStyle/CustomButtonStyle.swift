@@ -11,6 +11,6 @@ struct CustomButtonStyle: ButtonStyle{
         configuration.label
             .padding(0)
             .foregroundStyle(colorScheme == .dark ? .white : .black)
-            .scaleEffect(configuration.isPressed ? 0.7 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.87 : 1.0)
     }
 }

@@ -15,9 +15,17 @@ struct CustomButtonWithIcon: View {
             }
         }, label: {
             Image(systemName: isHide ? "eye.slash" : "eye")
-                .background(Color.indigo)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding(4)
+                .background(Color.cyan)
                 .cornerRadius(24)
         })
         .buttonStyle(CustomButtonStyle())
     }
+}
+#Preview {
+    ContentView()
+        .environmentObject(User())
 }

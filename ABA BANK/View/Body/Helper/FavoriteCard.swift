@@ -27,7 +27,7 @@ struct FavoriteCard: View {
                 .font(.caption2)
                 .padding(.bottom)
         }
-        .padding()
+        .frame(width: 100, height: 120)
         .background(.white)
         .cornerRadius(24)
     }
