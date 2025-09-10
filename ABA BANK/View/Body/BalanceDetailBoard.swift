@@ -17,10 +17,8 @@ struct balanceDetailBoard: View{
                         .blur(radius:  isHide ? 10 : 0)
                     CustomButtonWithIcon(isHide: $isHide)
                 }
-                HStack{
-                    CustomMiniButton(isBg: Color.blue, label: "Default")
-                    CustomMiniButton(isBg: Color.clear, label: "Saving")
-                }
+                
+                AccountView()
                 Spacer()
                 VStack{
                     HStack{
@@ -39,4 +37,14 @@ struct balanceDetailBoard: View{
 #Preview{
     ContentView()
         .environmentObject(User())
+}
+
+struct AccountView: View {
+    @State var selected: Int = 1
+    var body: some View {
+        HStack{
+            CustomMiniButton(isBg: selected == 1 ? .clear : Color.blue, label: "Default", selected: $selected)
+            CustomMiniButton(isBg: selected == 2 ? Color.clear : Color.blue, label: "Saving", selected: $selected)
+        }
+    }
 }

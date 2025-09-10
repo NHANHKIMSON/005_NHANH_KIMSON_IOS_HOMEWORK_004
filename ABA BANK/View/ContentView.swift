@@ -9,6 +9,8 @@ struct ContentView: View {
     @EnvironmentObject var user: User
     @State var isEditingHome: Bool = false
     @State var selectedTheme: Int = 7
+        
+    
     var body: some View {
         NavigationStack{
             GeometryReader{ geomentry in
@@ -24,6 +26,8 @@ struct ContentView: View {
                                 // Balance View
                                 balanceDetailBoard(geomentry: geomentry)
                                 
+                                
+                            
                                 // Menu View
                                 Menu(geometry: geomentry)
                                 
@@ -62,6 +66,7 @@ struct ContentView: View {
                                     })
                                 }
                                 GovernmentService(geometry: geomentry)
+
                                 ButtonIconHorizontal(action: {
                                      isEditingHome = true
                                 }, text: "Edit Home", icon: "highlighter")
@@ -79,7 +84,6 @@ struct ContentView: View {
                     
                 }
                 .foregroundStyle(.white)
-                .preferredColorScheme(.light)
                 .gesture(
                     LongPressGesture(maximumDistance: 0.3)
                         .onEnded{ _ in

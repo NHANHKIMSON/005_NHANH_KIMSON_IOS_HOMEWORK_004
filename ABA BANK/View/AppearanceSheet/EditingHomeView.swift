@@ -8,6 +8,7 @@
 
 import SwiftUI
 struct EditingHomeView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedTheme: Int
     var body: some View {
         VStack(alignment: .leading){
@@ -20,7 +21,7 @@ struct EditingHomeView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding([.leading, .top])
-        .foregroundStyle(.black)
+        .foregroundStyle(colorScheme == .dark ? .white : .black)
     }
 }
 
