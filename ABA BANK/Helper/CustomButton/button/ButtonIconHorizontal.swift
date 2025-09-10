@@ -7,7 +7,6 @@
 
 import SwiftUI
 struct ButtonIconHorizontal: View {
-    @Environment(\.colorScheme) var colorScheme
     var action: ()-> Void = {}
     var text: String?
     var icon: String?
@@ -19,7 +18,7 @@ struct ButtonIconHorizontal: View {
             }
             .padding(12)
             .foregroundStyle(.black)
-            .background(colorScheme == .dark ? .white : .black)
+            .background(.white)
             .font(.caption)
             .cornerRadius(.infinity)
         })
