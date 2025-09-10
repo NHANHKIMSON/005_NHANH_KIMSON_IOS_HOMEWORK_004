@@ -11,10 +11,9 @@ struct Favorite: View {
     var geometry: GeometryProxy
     var body: some View {
         ScrollView(.horizontal){
-            LazyHStack(spacing: 116){
+            LazyHStack(spacing: 16){
                 ForEach(users){ user in
-//                    FavoriteCard(name: user.fullName)
-                    ExplorServicesCard(geometry: geometry)
+                    FavoriteCard(name: user.fullName)
                 }
             }
             .padding(.leading)

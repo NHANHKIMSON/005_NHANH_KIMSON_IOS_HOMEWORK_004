@@ -7,50 +7,33 @@
 import SwiftUI
 
 
-class ExplorServices: Identifiable{
-    var id: UUID = UUID()
-    var serviceName: String
-    var image: String
-    var serviceImage: String
-    init(id: UUID, serviceName: String, image: String, serviceImage: String) {
-        self.id = id
-        self.serviceName = serviceName
-        self.image = image
-        self.serviceImage = serviceImage
-    }
-}
-
 
 struct ExplorServicesCard: View{
     var geometry: GeometryProxy
     var serviceName: String = ""
-    var image: String = "VET"
-    var serviceImage: String = ""
+    var image: String = ""
     var body: some View{
-        GeometryReader{ geometry in
-            VStack(alignment: .leading){
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
-                    .frame(width: 40, height: 40)
-                    .overlay{
-                        RoundedRectangle(cornerRadius: .infinity)
-                            .stroke(.white,  lineWidth: 3)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: .infinity))
-                Text("VEAT")
-                    .foregroundStyle(.black)
-                    .font(.caption2)
-                    .padding(.bottom)
-            }
-//            .frame(width: 100, height: 120)
-            .background(.white)
-            .cornerRadius(24)
+        VStack(alignment: .leading){
+            Image(image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: geometry.size.width * 0.20, height: geometry.size.width * 0.20)
+                .overlay{
+                    RoundedRectangle(cornerRadius: geometry.size.width * 0.08)
+                        .stroke(.white,  lineWidth: 6)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: geometry.size.width * 0.08))
+            Text(serviceName)
+                .font(.footnote)
         }
+        .foregroundStyle(.white)
     }
 }
 #Preview {
     ContentView()
         .environmentObject(User())
 }
+
+
+
+
